@@ -207,7 +207,7 @@ Therefore #receiver sends a packet across the token ring network, until either
 	 */
 	public boolean requestWorkstationPrintsDocument(String workstation, String document,
 			String printer, Writer report) {
-		assert consistentNetwork() & hasWorkstation(workstation);
+		assert consistentNetwork() & hasWorkstation(workstation) : "Error en la aserción.";
 
 		try {
 			report.write("'");

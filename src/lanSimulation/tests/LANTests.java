@@ -23,6 +23,7 @@ import lanSimulation.internals.*;
 import lanSimulation.*;
 import junit.framework.*;
 import junit.extensions.*;
+
 import java.lang.AssertionError;
 import java.io.*;
 
@@ -246,10 +247,16 @@ the tests should work as expected.
             }*/
 
 	public void test() {
+		
 	    Network network = Network.DefaultExample();
 	    StringWriter report = new StringWriter(100);
-	    network.requestWorkstationPrintsDocument("UnknownWorkstation",
-					      "does not matter", "does not matter", report);
+	    try{
+		    network.requestWorkstationPrintsDocument("UnknownWorkstation",
+						      "does not matter", "does not matter", report);
+		    fail();
+		} catch (AssertionError e) {
+			
+		}
 	}
 
   
